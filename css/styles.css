@@ -83,8 +83,19 @@ img {
 
 /**Headers**/
 
-.header {
+.webp .header {
+    /*Si soporta webp carga la imagen webp*/
+    background-image: url(/img/banner.webp);
+}
+
+.no-webp .header {
+    /*Si no la soporta carga la imagen jpg*/
     background-image: url(/img/banner.jpg);
+}
+
+/*Esto de acá arriba esta usando modernizr*/
+
+.header {
     height: 60rem;
     background-size: cover;
     background-repeat: no-repeat;
@@ -169,12 +180,17 @@ img {
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 2rem;
+    border: none;
 }
 
 @media (min-width: 768px) {
     .button {
         display: inline-block;
     }
+}
+
+.button:hover {
+    cursor: pointer;
 }
 
 .primary--button {
@@ -187,31 +203,39 @@ img {
 
 }
 
+/**Widget of Courses and Our Courses**/
+
 .courses {
     list-style: none;
 }
 
-.widget-courses {
+.widget-courses,
+.our-courses {
     border-bottom: 1px solid var(--gris);
     margin-bottom: 2rem;
 }
 
-.widget-courses:last-of-type {
+.widget-courses:last-of-type,
+.our-courses:last-of-type {
     border-bottom: 0;
     margin-bottom: 0;
 }
 
-.widget-courses__label {
+.widget-courses__label,
+.our-courses__label {
     font-family: var(--fuenteHeading);
     font-weight: 700;
 }
 
-.widget-courses__info {
+.widget-courses__info,
+.our-courses__info {
     font-weight: 400;
 }
 
 .widget-courses__label,
-.widget-courses__info {
+.widget-courses__info,
+.our-courses__label,
+.our-courses__info {
     font-size: 2rem;
 }
 
@@ -232,40 +256,55 @@ img {
 
 /**Our Courses**/
 
+.courses {
+    margin-top: 4rem;
+}
+
 @media (min-width: 768px) {
     .our-courses {
         list-style: none;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 2fr;
         column-gap: 4rem;
     }
 
 }
 
-.our-courses {
-    border-bottom: 1px solid var(--gris);
-    margin-bottom: 2rem;
-}
-
-.our-courses:last-of-type {
-    border-bottom: 0;
-    margin-bottom: 0;
-}
-
-.our-courses__img{
+.our-courses__img {
     grid-column: 1/2;
 }
 
-.our-courses__label {
-    font-family: var(--fuenteHeading);
-    font-weight: 700;
+/**Contact**/
+
+.contact-bg {
+    background-image: url(/img/contacto.jpg);
+    height: 40rem;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.our-courses__info {
-    font-weight: 400;
+.form {
+    background-color: var(--blanco);
+    margin: -5rem auto 0 auto;
+    width: 95%;
+    padding: 3rem;
 }
 
-.our-courses__label,
-.our-courses__info {
-    font-size: 2rem;
+.field {
+    display: flex;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+.field__label {
+    flex: 0 0 9rem;
+}
+
+.field__inputs {
+    flex: 1;
+    border: 1px solid var(--gris);
+}
+
+.field__inputs--textarea {
+    height: 20rem;
 }
